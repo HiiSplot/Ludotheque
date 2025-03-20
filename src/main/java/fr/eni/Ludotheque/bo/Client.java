@@ -1,11 +1,11 @@
 package fr.eni.Ludotheque.bo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
@@ -28,16 +28,15 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer no_client;
 	@Column(nullable = false, length = 50)
-	@NonNull private String nom;
+	@NonNull private String lastname;
 	@Column(nullable = false, length = 50)
-	@NonNull private String prenom;
+	@NonNull private String firstname;
 	@Column(nullable = false, length = 50)
 	@NonNull private String email;
 	@Column(nullable = false, length = 10)
-	@NonNull private Integer no_telephone;
+	@NonNull private Integer no_tel;
 	
-	@OneToOne
-	@JoinColumn(name="address_user", referencedColumnName = "id_address")
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@NonNull private Address address;
 
 }

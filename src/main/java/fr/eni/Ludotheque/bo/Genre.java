@@ -19,23 +19,15 @@ import lombok.ToString;
 @Builder
 @EqualsAndHashCode
 @Entity
-@Table(name="ADDRESS")
-public class Address {
+@Table(name="GENRE")
+public class Genre {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id_address;
-
-	@Column(nullable = false, length = 10)
-	@NonNull private Integer no_address;
-
+	Integer id_genre;
+	
 	@Column(nullable = false, length = 50)
-	@NonNull private String street;
+	@NonNull private String libelle;
 	
-	@Column(nullable = false, length = 5)
-	@NonNull private Integer country_code;
-	
-	@Column(nullable = false, length = 20)
-	@NonNull private String city;
-	
+
 }
